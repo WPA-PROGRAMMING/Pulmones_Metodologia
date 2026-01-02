@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./banner.png" alt="Banner - Clasificación de Patologías Pulmonares"/>
+</p>
+
 # Clasificación de Patologías Pulmonares mediante Transfer Learning y Métodos Clásicos
 
 Este proyecto implementa un sistema de diagnóstico asistido para la
