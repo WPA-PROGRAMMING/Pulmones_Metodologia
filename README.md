@@ -35,9 +35,30 @@ siguientes técnicas:
 -   **Escala de grises:** Las imágenes fueron normalizadas en blanco y
     negro para resaltar densidades tisulares y eliminar información de
     color irrelevante.
--   **Recorte focalizado (cropping):** Se realizó un ajuste manual y
-    automático hacia la región torácica para eliminar ruido visual
+-   **Recorte focalizado (cropping):** Se realizó un ajuste manual
+    hacia la región torácica para eliminar ruido visual
     periférico.
+
+------------------------------------------------------------------------
+
+#### 1.1. Dataset y Preprocesamiento
+
+El modelo fue entrenado utilizando una **compilación personalizada de múltiples datasets públicos**, seleccionados por su diversidad clínica y calidad en radiografías de tórax. Esta integración permitió mejorar la robustez del sistema y su capacidad de generalización frente a distintos patrones patológicos.
+
+##### Nota de Ingeniería
+
+Se aplicó un **proceso de recorte focalizado (cropping)** sobre la región torácica de cada imagen.
+Esta estrategia fuerza al modelo a concentrarse exclusivamente en las **texturas, densidades y patrones morfológicos del parénquima pulmonar**, eliminando información visual periférica irrelevante. Como resultado, se obtuvo una **mejora significativa en la precisión y estabilidad del modelo**, especialmente en la diferenciación entre patologías de apariencia similar.
+
+##### Datasets Utilizados
+
+- **[https://www.kaggle.com/datasets/tawsifurrahman/covid19-radiography-database]**
+- **[https://www.kaggle.com/datasets/prashant268/chest-xray-covid19-pneumonia]**
+- **[https://www.kaggle.com/datasets/tawsifurrahman/tuberculosis-tb-chest-xray-dataset]**
+- **[https://www.kaggle.com/datasets/yasserhessein/tuberculosis-chest-x-rays-images]**
+
+
+------------------------------------------------------------------------
 
 ### 2. Extracción de Características (Feature Extraction)
 
@@ -93,9 +114,42 @@ conda env create -f general.yml
 conda env create -f grafico.yml
 
 # Instalación de dependencias de Node.js
-cd backend && npm install
 cd ../frontend && npm install
 ```
+
+------------------------------------------------------------------------
+
+## Ejecución de la implementación
+
+Una vez configurados los entornos y dependencias, el sistema puede ejecutarse de forma local siguiendo los pasos descritos a continuación.  
+La arquitectura se encuentra separada en **backend** y **frontend**, los cuales deben iniciarse de manera independiente.
+
+### Backend
+
+El backend expone los servicios de inferencia y procesamiento mediante una API desarrollada con **FastAPI**.
+
+> Por defecto, el backend se ejecutará en modo desarrollo con recarga automática ante cambios en el código.
+
+#### Pasos para iniciar el servidor
+
+```bash
+cd backend/
+uvicorn app.main:app --reload
+```
+
+### Backend
+
+La interfaz de usuario está desarrollada con tecnologías web modernas y se encarga de la carga de radiografías y visualización de resultados.
+
+> Una vez iniciado, la aplicación estará disponible en el navegador a través de la URL indicada en la consola.
+
+#### Pasos para iniciar el servidor
+
+```bash
+cd frontend/
+npm run dev
+```
+
 
 ------------------------------------------------------------------------
 
@@ -107,11 +161,12 @@ cd ../frontend && npm install
     inferencias.
 -   **/frontend**: Interfaz de usuario para carga de radiografías.
 
+
 ------------------------------------------------------------------------
 
 ## Colaboradores
 
 Proyecto desarrollado por:
 
--   **\[Nombre del Colaborador\]** - \[Enlace al perfil\]\
--   **\[Tu Nombre\]** - \[Enlace al perfil\]
+-   **\[Kevin Merlin Cabrera Coyotzi\]** - \[https://github.com/WPA-PROGRAMMING\]\
+-   **\[Dulce Anahí Luna García\]** - \[https://github.com/Dulce-Luna\]
