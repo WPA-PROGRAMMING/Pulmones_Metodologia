@@ -82,11 +82,12 @@ Los vectores densos de 1280 dimensiones se utilizaron como entrada para
 tres clasificadores clásicos. El rendimiento se evaluó en un set de
 prueba de **560 imágenes**.
 
-  Algoritmo       Accuracy     Precision (Prom.)   F1-Score (Prom.)
-  --------------- ------------ ------------------- ------------------
-  **SVM (SVC)**   **0.9768**   **0.98**            **0.98**
-  Random Forest   0.9750       0.97                0.97
-  KNN             0.9411       0.94                0.94
+| Algoritmo          | Accuracy | Precision (Prom.) | F1-Score (Prom.) |
+|--------------------|----------|-------------------|------------------|
+| **SVM (SVC)**      | 0.9768   | 0.98              | 0.98             |
+| **Random Forest**  | 0.9750   | 0.97              | 0.97             |
+| **KNN**            | 0.9411   | 0.94              | 0.94             |
+
 
 ### Análisis del Mejor Modelo (SVM)
 
